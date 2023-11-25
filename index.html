@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>dict-rest</title>
 </head>
 <body>
     <header>
-        <button>Página Inicial</button>
+        <button id='btn_ini'>Página Inicial</button>
     </header>
     
     <div class="area_da_pagina">
@@ -16,24 +17,23 @@
 
             <div class="form">
 
-                <input type="text" id="word-search">
-                <button id="btn-search">Buscar</butto>
+                <input type="text" id="word_search">
+                <button id="btn_search">Buscar</butto>
 
             </div>
 
         </main>
 
         <main id="pag_res" hidden>
-
-            <h1 id="word-result"></h1>
-            <article id="fonetica"></article>
             
-            <article id="origem">
-                <p>Origem: <span id="word-origin"></span></p>
-            </article>
-            
-            <article id="significados"></article>
+            <div class="form">
 
+                <input type="text" id="word_search_again">
+                <button id="btn_search_again">Buscar</butto>
+
+            </div>
+
+            <!-- HERE IS GONNA BE INSERTED THE REST OF THE PAGE, GENERATED DYNAMICALLY -->
         </main>
 
     </div>
@@ -45,5 +45,7 @@
             E-mail: <a href="mailto:inaue.silva@gmail.com">inaue.silva@gmail.com</a>
         </p>
     </footer>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
