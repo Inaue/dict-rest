@@ -41,6 +41,7 @@ const mostra_resultado = res =>
     let significado
     let palavra
 
+    $('input[type="text"]').val('')
     $('.palavra').remove()
     muda_pag($('#pag_res'))
 
@@ -52,26 +53,28 @@ const mostra_resultado = res =>
             palavra.append($('<article id="fonetica' + p + '"></article>')[0])
             palavra.append($('<article id="significados' + p + '"></article>')[0])
 
-            $('#fonetica' + p).append('<h2>Pronúncias</h2>')
+            $('#fonetica' + p).append('<h2>Pronunciation</h2>')
 
             w.phonetics.forEach(ph =>
                 {
-                    pronuncia = '<hr>' + ph.text
+                    pronuncia = '<hr>' + ph.text + '<br>'
 
                     if(ph.audio == '')
                     {
-                        pronuncia += ' Sem áudio disponível!<br>'
+                        pronuncia += ' Audio is not available!<br>'
                     }
                     else
                     {
                         pronuncia += '<audio controls>'
                         pronuncia += '<source src="' + ph.audio + '" type="audio/mpeg">'
-                        pronuncia += 'ERRO: seu navegador não suporta o áudio!'
+                        pronuncia += 'ERROR: your browser does not support the audio!'
                         pronuncia += '</audio><br>'
                     }
 
                     $('#fonetica' + p).append(pronuncia)
                 })
+            
+            $('#fonetica' + p).append('<h2>Meanings</h2>')
             
             w.meanings.forEach(m =>
                 {
@@ -82,18 +85,20 @@ const mostra_resultado = res =>
                     
                             if('example' in d)
                             {
-                                significado += 'Exemplo: ' + d.example + '<br>'
+                                significado += 'Example: ' + d.example + '<br>'
                             }
                         })
                     
+                    significado += '<br>'
+                    
                     if(m.synonyms.length != 0)
                     {
-                        significado += 'Sinônimos: ' + m.synonyms.join(', ') + '<br>'
+                        significado += 'Synonyms: ' + m.synonyms.join(', ') + '<br>'
                     }
 
                     if(m.antonyms.length != 0)
                     {
-                        significado += 'Antônimos: ' + m.antonyms.join(', ') + '<br>'
+                        significado += 'Antonyms: ' + m.antonyms.join(', ') + '<br>'
                     }
                     
                     $('#significados' + p).append(significado)
@@ -103,5 +108,5 @@ const mostra_resultado = res =>
 
 const mostra_erro = res =>
 {
-    alert('ERRO: busca mal sucedida! Tente novamente.')
+    alert('ERROR: problems while searching for the expression! Try it again.')
 }

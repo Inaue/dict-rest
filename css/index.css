@@ -35,6 +35,10 @@ body .area_da_pagina .form button {
   background-color: #5FBDFF;
   color: #C5FFF8;
   border: 0;
+  padding: 5px;
+}
+body .area_da_pagina .form input {
+  padding: 5px;
 }
 body .area_da_pagina .form button:hover {
   background-color: #7B66FF;
